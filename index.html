@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatcheADAs</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+<body>
+    <!--CONTENEDOR PRINCIPAL---------------------->
+    <div class="contenedor-principal">
+        <h1 class="titulo">Match game ADA</h1>
+        <!--Panel de datos------------------------>
+        <div class="panel-datos">
+          <div class="contenedor-puntaje">
+            <p>Combo x<span id="combo">1</span></p>
+            <p>Puntos: <span id="puntaje" class="puntaje">0</span></p>
+          </div>
+          <div>
+            <button id="boton-ayuda" aria-label="Instrucciones">
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </button>
+            <button id="boton-reiniciar" aria-label="Reiniciar">
+              <i class="fas fa-undo-alt" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <!--Matriz del juego--------------------->
+        <div class="matriz-juego">
+          <div id="grilla" style="height: 472px;"></div>
+        </div>
+        <!--Reloj contador del juego------------->
+        <div class="contador-juego">
+          <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+          <p class="tiempo-restante">0:00</p>
+        </div>
+    </div>
+    <!--PANEL SUPERPUESTO DE NOTIFICACIONES----------------------->
+    <div class="caja-superpuesta oculto">
+        <!--Notificación de bienvenida-------------------------->
+        <div class="nota" id="bienvenida-modal" role="dialog" aria-modal="true">
+            <h2 class="modal-titulo">¡Bienvenida!</h2>
+            <div class="modal-contenido">
+            <p class="modal-texto">
+              En MatcheADAs tu objetivo es juntar tres o más ítems del mismo tipo,
+              ya sea en fila o columna. Para eso, selecciona un ítem y a
+              continuación un ítem adyacente para intercambiarlos de lugar.
+            </p>
+            <p class="modal-texto">
+              Si se forma un grupo, esos ítems se eliminarán y ganarás puntos.
+              ¡Sigue armando grupos de 3 o más antes de que se acabe el tiempo!
+            </p>
+            <strong class="modal-texto">Controles</strong>
+            <p>Click izquierdo: selección</p>
+            <p>Enter o Espacio: selección</p>
+            <p>Flechas o WASD: movimiento e intercambio</p>
+            </div>
+            <div class="modal-botones">
+                <button class="boton" id="empezar-boton">A Jugar</button>
+            </div>
+        </div>
+        <!--Iniciar partida--------------------------------->
+        <div class="nota oculto" id="nuevo-juego-modal" role="dialog" aria-modal="true">
+            <h2 class="modal-titulo">Nuevo Juego</h2>
+            <div class="modal-contenido">
+              <p class="modal-texto">Selecciona una dificultad</p>
+            </div>
+            <div class="modal-botones">
+              <button class="boton" id="modo-facil-boton">Fácil</button>
+              <button class="boton" id="modo-normal-boton">Normal</button>
+              <button class="boton" id="modo-dificil-boton">Difícil</button>
+            </div>
+        </div>
+        <!--Juego terminado-------------------------------->
+        <div class="nota oculto" id="juego-terminado-modal" role="dialog" aria-modal="tr/htmlue">
+            <h2 class="modal-titulo">¡Juego terminado!</h2>
+            <div class="modal-contenido">
+            <p class="modal-texto">
+              Puntaje final: <span id="puntaje-final">0</span>
+            </p>
+            </div>
+            <div class="modal-botones">
+                <button class="boton" id="nuevo-juego-boton">Nuevo Juego</button>
+                <button class="boton" id="reiniciar-boton">Reiniciar</button>
+            </div>
+        </div>
+        <!--Nueva partida---------------------------------->
+        <div class="nota oculto" id="nuevo-juego-modal" role="dialog" aria-modal="true">
+            <h2 class="modal-titulo">Nuevo Juego</h2>
+            <div class="modal-contenido">
+              <p class="modal-texto">Selecciona una dificultad</p>
+            </div>
+            <div class="modal-botones">
+              <button class="boton" id="modo-facil-boton">Fácil</button>
+              <button class="boton" id="modo-normal-boton">Normal</button>
+              <button class="boton" id="modo-dificil-boton">Difícil</button>
+            </div>
+        </div>
+        <!--Reiniciar partida---------------------------->
+        <div class="nota oculto" id="reiniciar-modal" role="dialog" aria-modal="true">
+            <h2 class="modal-titulo">Iniciar juego</h2>
+            <div class="modal-contenido">
+              <p class="modal-texto">Perderás todo tu puntaje acumulado!</p>
+            </div>
+            <div class="modal-botones">
+              <button class="boton boton-cancelar">Cancelar</button>
+              <button class="boton" id="nuevo-juego-boton">Nuevo Juego</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="index.js"></script>   
+</body>
+</html>
